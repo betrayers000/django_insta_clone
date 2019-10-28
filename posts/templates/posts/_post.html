@@ -1,0 +1,10 @@
+{% load make_link %}
+<div class="card col-6">
+    <img src="{{post.image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><a href="{% url 'accounts:user_page' post.user.id %}">{{post.user.username}}</a></h5>
+      <p class="card-text">{{post|hashtag_link|safe}}</p>
+      <a href="{% url 'posts:like' post.id %}" class="btn btn-primary">좋아요 : {{post.like_users.all.count}}</a>
+      <a href="{% url 'posts:update' post.id %}" class="btn bnt-primary">수정</a>
+    </div>
+  </div>
